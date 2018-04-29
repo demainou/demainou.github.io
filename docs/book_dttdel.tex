@@ -1,0 +1,389 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={DATA SCIENCE FOR A CITY - SOUTH AFRICAN LOCAL GOVERNMENT},
+            pdfauthor={Delyno du Toit},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{DATA SCIENCE FOR A CITY - SOUTH AFRICAN LOCAL GOVERNMENT}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Delyno du Toit}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2018-04-28}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{Title page}\label{title-page}
+
+Declaration English - Abstract (max. 500 words) Afrikaans - Opsomming
+(max. 500 words) Acknowledgements Table of Contents List of Figures List
+of Tables Main Body -- e.g.~Chapter 1, Chapter 2, etc. Reference List
+Addenda (e.g.~Addendum A, Addendum B, etc.)
+
+\chapter{INTRODUCTION}\label{introduction}
+
+\section{Background}\label{background}
+
+The public sector, more than the private sector, is confined by laws,
+bylaws, policies, and a risk-averse mindset. Layers of bureaucracy,
+inflexible rule applications, political agendas, multiple agency
+involvement curb progressive breakthroughs. Financial stresses are
+adding to local governments restrictions making them even less
+responsive. All the constraints limit local government to focus on
+outpus rather than the bigger picture and solutions. Officials get
+measured on how many houses are build, how quickly are potholes filled,
+how much lenghts of road is build rather than actual reductions in
+homelessness, reduction in potholes, efficient public transportation.
+Local government is protected against any abuse of discretion through an
+orientation toward compliance instead of the impact on society.
+Complexity and rule-driven accountability affect the way officials
+operates and regulate. Officials who've been with government for long
+periods, have slumped into a culture of dealing with problems by
+applying older bureaucratic structures to enforce compliance, resulting
+in inefficient utilisation of resources.
+
+Yet local government has the means to completely reverse this trend
+toward despair. One of the opportunities presenting itself is in the
+form of data modernisation. With the digital tools available today,
+officials can revolutionize local government, making it more responsive,
+transparent, and cost-effective than it has ever been.
+
+Local government is structured into compartmentalized units, with each
+having a unique mandate. The South African city used for this
+dissertation consist of 11 directorates. A directorate can be thought of
+as a company within the amalgamation of the city:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Area-Based Service Delivery
+\item
+  Assets and Facilities Management
+\item
+  Corporate Services
+\item
+  Directorate of the Mayor
+\item
+  Energy
+\item
+  Finance
+\item
+  Informal Settlements, Water and Waste Services
+\item
+  Office of the City Manager
+\item
+  Safety and Security
+\item
+  Social Services
+\item
+  Transport \& Urban Development Authority
+\end{enumerate}
+
+Each of the directorates have a specific mandate that they need to
+realize. This leads to directorates working in isolation and duplicating
+efforts and investments when managing their area. Although each
+directorate is unique, they must all work together towards a common
+purpose of providing a safe-, caring-, inclusive-, opportunity- and
+well-run city . Big strides have been made to create a transversal
+approach to solving problems and to break down the silo way of working.
+
+Daily, decisions get taken that have an impact on the city's operations,
+strategies, urban plans and finances. The City leadership, is dependent
+on data to inform their decision-making. The problem is that the data
+used to inform decision making resides on multiple systems and with
+multiple people. The systems don't talk to each other and to do
+performance reporting is cumbersome, let alone analyses. Accessing the
+data is resource intensive and time consuming. Once the data is collated
+more work need to be performed on it before presenting it for decision
+making. The data presented is open for interpretation and limited or
+non-existent in analysis to provide insights to improve performance and
+get the maximum effect with limited resources. Due to the manual
+interventions to synthesis the data errors creep in and more concerning
+different figures are being reported on for the same information.
+
+When it comes to decision-making the city systems is restricted to
+reporting on the pass and by function, e.g.~service requests, revenue,
+etc. The main system used for this is the ERP system. The reports are
+reflective and present data in a static format, i.e.~not visual or
+interactive or highlighting exceptions, trends or providing insight from
+the data. Limited analysis is done on the data on a functional level,
+and on a transversal level even less. The non-transactional data is used
+haphazardly during the decision-making process, i.e.~survey's, images,
+videos, sensors, external data from national and provincial government
+and private sector, etc.
+
+Within the City the term ``data-driven decision-making'' means reporting
+key performance metrics based on historical data and using these metrics
+to support and justify business decisions. This is a good start but data
+volume, variety and velocity is ever-increasing. To capitalize on
+opportunities that can be identified, data and analytics should take on
+a more active and dynamic role in powering the activities of the entire
+organization, not just reflecting where it's been.
+
+Given all the data there is is still an omission of data-driven
+decisions. Decisions should no longer be left to gut instinct. Instead,
+decisions and actions should be based in facts, and those facts also
+fuel algorithms that predict optimal outcomes. Although it's taken a
+while to take root, leading enterprises are finally embracing this
+perspective. The city's IT systems main purpose is to automate
+processes. Data is stored, then analyzed, often as an afterthought, to
+assess what had already happened. That passive approach need to give way
+to a more proactive, engaged model, where systems are architected and
+built around analytics.
+
+The box below provide a good summary of the bottlenecks faced within the
+city.
+
+\begin{verbatim}
+In New York City, Michael Bloomberg took office as mayor (January 1, 2002 – December 31, 2013)
+after long years of experience in the use of data, and he created a metrics-driven mayoralty.
+Agencies agreed to cooperate to set up his proposed data analytics center and other interagency
+data initiatives. Yet almost all of them soon asserted legal, technical, and operational obstacles
+to full participation. Budget experts also pushed back, worried about costs. Lawyers cited vast
+numbers of rules (most from the federal government) that prohibited sharing of data.  Within each
+city agency, its chief information officer would explain how only he or she could manage the
+complex legacy databases of that unit. Despite his mandate, his commitment to data, and a raft
+of first-rate appointees, Bloomberg would not have succeeded in making New York City a leader in
+data-driven government had he not pushed hard from the top for change. The lesson here is a bit
+paradoxical: How can leaders at the top of a hierarchy create the conditions that will replace
+that hierarchy with a far more open and fluid system?
+\end{verbatim}
+
+\citep{responsiveCity} The Responsive City
+
+Unleashing the power of data and analytics will bring about the
+disintegration of the age of bureaucracy, allowing government to move
+from a compliance model to a problem-solving one that truly values the
+intelligence and dedication of its employees and the imagination and
+civic spirit of its citizens.
+
+\textbf{Data Science}
+
+\textbf{City Dashboards}
+
+\textbf{Cities Current Data Science Environment}
+
+\section{Problem Statement}\label{problem-statement}
+
+How can a South African city use the vast amount of data in their
+posession to make better decsions by applying data science. The
+dissertation will address this question by applying data science
+techniques to three use cases.
+
+\section{Definitions, assumptions,
+limitations}\label{definitions-assumptions-limitations}
+
+\section{Brief Chapter overviews}\label{brief-chapter-overviews}
+
+The dissertation consist of five chapters.
+
+\begin{itemize}
+\item
+  In Chapter 1, a compelling case is made for the application of data
+  science within local government.
+\item
+  Chapter 2 serves as the foundation on which the study is built and as
+  a basis for discussing results and interpretations. This chapter
+  situates the study in the context of previous research and scholarly
+  material pertaining to data science within local government or
+  government, presents a critical synthesis of empirical literature
+  according to relevant themes or variables, justifies how the study
+  addresses a gap or problem in the literature, and outlines the
+  theoretical or conceptual framework of the study.
+\item
+  Chapter 3 provides a rationale for the methodology followed, describes
+  the research setting and sample, and describes data collection and
+  analysis methods. The chapter provides a detailed description of all
+  aspects of the design and procedures of the study.
+\item
+  Chapter 4 present a factual reporting of the study results is
+  presented. The chapter offers the researcher an opportunity to reflect
+  on the study's findings, and the practical and theoretical
+  implications thereof.
+\item
+  Chapter 5 presents a set of concluding statements and recommendations.
+  ``Knowing what I now know, what conclusion can I draw?'' This may
+  include implications for practice as well as implications for future
+  research. Findings are integrated with the theory employed in the
+  first chapter and the body of knowledge presented in the second
+  chapter. The chapter ends with a cogent conclusion summarizing the
+  importance of the study findings.
+\end{itemize}
+
+\chapter{LITERATURE REVIEW}\label{literature-review}
+
+\section{Introduction}\label{introduction-1}
+
+\section{Broad context theory base}\label{broad-context-theory-base}
+
+\section{Detailed (works organised by topic or
+idea)}\label{detailed-works-organised-by-topic-or-idea}
+
+\section{Conclusion}\label{conclusion}
+
+\chapter{METHOD}\label{method}
+
+\section{Introduction}\label{introduction-2}
+
+\section{Research Design}\label{research-design}
+
+\section{Research Instruments}\label{research-instruments}
+
+\section{Data}\label{data}
+
+\section{Analyses}\label{analyses}
+
+\section{Limitations}\label{limitations}
+
+\section{Ethics}\label{ethics}
+
+\section{Conclusion}\label{conclusion-1}
+
+\chapter{FINDINGS AND ANALYSES}\label{findings-and-analyses}
+
+\section{Use Case 1: Predictive Maintenance of a city's Electricity
+Assets}\label{use-case-1-predictive-maintenance-of-a-citys-electricity-assets}
+
+\subsection{introduction}\label{introduction-3}
+
+\subsection{sections}\label{sections}
+
+\subsection{sub conclusions}\label{sub-conclusions}
+
+\section{Use Case 2: Image Classification of Informal
+Dwellings}\label{use-case-2-image-classification-of-informal-dwellings}
+
+\subsection{introduction}\label{introduction-4}
+
+\subsection{sections}\label{sections-1}
+
+\subsection{sub conclusions}\label{sub-conclusions-1}
+
+\section{Use Case 3: Supervised- and Unsupervised Learning applied to a
+city's Service
+Notification}\label{use-case-3-supervised--and-unsupervised-learning-applied-to-a-citys-service-notification}
+
+\subsection{introduction}\label{introduction-5}
+
+\subsection{sections}\label{sections-2}
+
+\subsection{sub conclusions}\label{sub-conclusions-2}
+
+\chapter{CONCLUSION}\label{conclusion-2}
+
+\section{Summary of Findings}\label{summary-of-findings}
+
+\section{Conclusions}\label{conclusions}
+
+\section{Summary of Contributions}\label{summary-of-contributions}
+
+\section{Future Research}\label{future-research}
+
+\bibliography{book.bib}
+
+
+\end{document}
